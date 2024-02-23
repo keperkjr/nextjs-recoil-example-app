@@ -1,13 +1,10 @@
-// Note the import 👇
-import { RecoilState, atom, selector } from "recoil";
+import { counterAtom } from "./atom"
+import { IRecoilCounterState } from "./definitions"
+import selectors from "@/recoil/counter/selectors";
 
-// creating the state value
-export const counterState: RecoilState<number> = atom({
-  key: "count",
-  default: 0
-});
-
-interface ICounterRecoilState {
-  state: RecoilState<number>,
-  selectors: any
-}
+const recoilCounterState = {
+    atom: counterAtom,
+    selectors
+} as IRecoilCounterState
+  
+export default recoilCounterState

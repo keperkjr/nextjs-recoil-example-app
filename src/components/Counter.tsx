@@ -3,18 +3,17 @@
 import React, { useState } from "react";
 // Note the import below
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { counterState } from "@/recoil/counter/state";
-import { isEvenCount } from "@/recoil/counter/selector";
+import recoilCounterState from "@/recoil/counter/state";
 
 const Counter = () => {
-    const [countState, setCount] = useRecoilState(counterState);
-    const value = useRecoilValue(isEvenCount);
+    const [counterState, setCounter] = useRecoilState(recoilCounterState.atom);
+    const isEven = useRecoilValue(recoilCounterState.selectors.isEven);
 
     return (
     <div>
-        <h1>{countState}</h1>
-        <button onClick={() => setCount(c => c + 1)}>Increase count</button>
-        <p>{`Is  even count: ${value}`}</p>
+        <h1>{counterState}</h1>
+        <button onClick={() => setCounter(c => c + 1)}>Increase count</button>
+        <p>{`Is  even count: ${isEven}`}</p>
     </div>
     );
 }
