@@ -1,7 +1,8 @@
 import { RecoilState, RecoilValueReadOnly } from "recoil"
 
 export interface IRecoilCounterStateSelectors {
-  isEven: RecoilValueReadOnly<boolean>
+  isEven: RecoilValueReadOnly<boolean>,
+  setCount: RecoilState<number>
 }
 
 export interface IRecoilCounterState {

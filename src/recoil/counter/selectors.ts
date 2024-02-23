@@ -10,8 +10,17 @@ export const isEven : RecoilValueReadOnly<boolean> = selector({
   }
 });
 
+const setCount : RecoilState<number> = selector({
+  key: 'setCount',
+  get: ({ get }) => get(counterAtom),
+  set: ({ set, get }, newValue) => {
+      set(counterAtom, newValue);
+  },
+});
+
 const selectors = {
-  isEven
+  isEven,
+  setCount
 } as IRecoilCounterStateSelectors
 
 export default selectors;
